@@ -5,11 +5,9 @@ const resolvers = {
     songsFromNotes: (parent, args, context, info) => {
       return musicList
         .filter(song => {
-          const SongNoteNames = song.notes.map(note => note.name.slice(0, 1)).join(' ')
-          return SongNoteNames.includes(args.notes) // 'A B C'.includes('B C')?
+          return song.notesStringArray.some(notesString => notesString.includes(args.notes))
         })
-        .map(song => song.header)
-    },
+      },
     songsFromName: (parent, args, context, info) => {
       return musicList
         .filter(song => song.header.name === args.name)

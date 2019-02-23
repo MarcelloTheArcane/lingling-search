@@ -3,7 +3,7 @@ const resolvers = require('./resolvers.js')
 
 const typeDefs = gql`
 type Query {
-  songsFromNotes (notes: [String!]!): [song]!
+  songsFromNotes (notes: String!): [song]!
   songsFromName (name: String!): [song]!
 }
 

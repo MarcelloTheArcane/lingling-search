@@ -6,7 +6,7 @@ const resolvers = {
       musicList
         .filter(song => {
           const SongNoteNames = song.notes.map(note => note.name.slice(0, 1)).join(' ')
-          return SongNoteNames.includes(args.notes.join(' ')) // 'A B C'.includes('B C')?
+          return SongNoteNames.includes(args.notes) // 'A B C'.includes('B C')?
         })
         .map(song => song.header)
     },
